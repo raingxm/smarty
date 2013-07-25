@@ -2,7 +2,7 @@
 	
 	//这是一个用于保存分页信息的类
 	class FenyePage {
-		public $pageSize = 6;	
+		public $pageSize = 3;	
 		public $res_array;		//这是显示数据
 		public $rowCount;		//这是从数据库获取的
 		public $pageNow = 1;	//这是用户指定的

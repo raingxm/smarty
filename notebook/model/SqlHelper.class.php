@@ -88,17 +88,20 @@
 			if($fenyePage->pageNow > 10){
 				$navigate.= "&nbsp;&nbsp;<a href='{$fenyePage->gotoUrl}?pageNow=".($start-1)."'>&nbsp;&nbsp;<<&nbsp;&nbsp;</a>";
 			}
-			for(;$start<$index+$pageWhole;$start++){
+			for(;$start<$index+$pageWhole && $start<=$fenyePage->pageCount;$start++){
 				$navigate.= "<a href='{$fenyePage->gotoUrl}?pageNow=$start'>[$start]</a>";
 			}
 			//整体每10页向后翻动
-			$navigate.= "&nbsp;&nbsp;<a href='{$fenyePage->gotoUrl}?pageNow=$start'>&nbsp;&nbsp;>>&nbsp;&nbsp;</a>";
-			
+			if($index+$pageWhole <= $fenyePage->pageCount){
+				$navigate.= "&nbsp;&nbsp;<a href='{$fenyePage->gotoUrl}?pageNow=$start'>&nbsp;&nbsp;>>&nbsp;&nbsp;</a>";
+			}
 			//显示当前页和共有多少页
 			$navigate.="当前页{$fenyePage->pageNow}/共{$fenyePage->pageCount}页";
 			
 			//指定跳转到某页
-			$navigate.="<br/><br/>";
+			$navigate.= "<form action='{$fenyePage->gotoUrl}' method='get' onsubmit='return checkPageNow()'/>";
+			$navigate.= "请输入页数：<input type='text' name='pageNow' id='pageNow' onkeyup='return checkPageNow()' />";
+			$navigate.= "<input type='submit' value='go'";
 			
 			//把$arr赋给$fenyePage
 			$fenyePage->res_array = $arr;
