@@ -1,0 +1,1 @@
+<h1>访问该页面的次数</h1><{insert name="getVisitTime"}><h1>用户列表</h1>

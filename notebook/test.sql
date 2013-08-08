@@ -16,5 +16,5 @@ content varchar(200) not null
 
 insert into message (sender,getter,sendtime,content) values("周星驰","张三丰",now(),"吃了吗");
 insert into message (sender,getter,sendtime,content) values("林青霞","张三丰",now(),"吃撑了么");
-
+insert into message (sender,getter,sendtime,content) values("林青霞","张三丰",now(),"hello3");
  
